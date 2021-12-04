@@ -1,7 +1,6 @@
 use std::env;
 use std::fs::File;
 use std::io::{self, BufRead};
-use std::path::Path;
 
 use std::process;
 
@@ -15,9 +14,17 @@ fn main() {
 
     let filename = &args[1];
 
+    let file = match File::open(filename) {
+        Ok(file) => file,
+        Err(err) => {
+            println!("Error opening file: {}", err);
+            std::process::exit(1);
+        }
+    };
+
     let mut prev: i32 = -1;
     let mut increased: i32 = 0;
-    if let Ok(lines) = read_lines(filename) {
+    if let Ok(lines) = read_lines(file) {
         // Consumes the iterator, returns an (Optional) String
         for line in lines.into_iter().flatten() {
             let l = line.parse::<i32>().unwrap();
@@ -31,8 +38,6 @@ fn main() {
     println!("{}", increased);
 }
 
-fn read_lines<P>(filename: P) -> io::Result<io::Lines<io::BufReader<File>>>
-where P: AsRef<Path>, {
-    let file = File::open(filename)?;
+fn read_lines(file: File) -> io::Result<io::Lines<io::BufReader<File>>> {
     Ok(io::BufReader::new(file).lines())
 }
