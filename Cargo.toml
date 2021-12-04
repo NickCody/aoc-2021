@@ -1,8 +1,19 @@
 [package]
-name = "hello_remote_world"
+name = "aoc2021"
 version = "0.1.0"
-authors = ["VS Code <vscode@microsoft.com>"]
+authors = ["Nick Codignotto <nick.codignotto@gmail.com>"]
 
 [lib]
 path ="./src/lib/lib.rs"
+
+[profile.release]
+opt-level = "z"
+
+[[bin]]
+name = "aoc01"
+path = "src/aoc01.rs"
+
+[[bin]]
+name = "aoc02"
+path = "src/aoc02.rs"
 
