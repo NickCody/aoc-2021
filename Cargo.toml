@@ -14,6 +14,10 @@ name = "aoc01"
 path = "src/aoc01.rs"
 
 [[bin]]
+name = "aoc01a"
+path = "src/aoc01a.rs"
+
+[[bin]]
 name = "aoc02"
 path = "src/aoc02.rs"
 
