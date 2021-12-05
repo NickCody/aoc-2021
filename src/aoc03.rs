@@ -66,7 +66,7 @@ where
     println!("g: {}, e: {}, p: {}", g, e, g*e);
 }
 
-fn gamma(p: usize, r: &Vec<Diag>) -> u32 {
+fn gamma(p: usize, r: &[Diag]) -> u32 {
     if r[p].o_count >= r[p].z_count {
         1
     } else {
@@ -74,7 +74,7 @@ fn gamma(p: usize, r: &Vec<Diag>) -> u32 {
     }
 }
 
-fn epsilon(p: usize, r: &Vec<Diag>) -> u32 {
+fn epsilon(p: usize, r: &[Diag]) -> u32 {
     if r[p].z_count > r[p].o_count {
         1
     } else {
@@ -82,7 +82,7 @@ fn epsilon(p: usize, r: &Vec<Diag>) -> u32 {
     }
 }
 
-fn gamma_rate(r: &Vec<Diag>) -> u32 {
+fn gamma_rate(r: &[Diag]) -> u32 {
     let mut s: u32 = 0;
     for (i, _d) in r.iter().enumerate() {
         if (gamma(i, r)) == 1 {
@@ -92,7 +92,7 @@ fn gamma_rate(r: &Vec<Diag>) -> u32 {
     s
 }
 
-fn epsilon_rate(r: &Vec<Diag>) -> u32 {
+fn epsilon_rate(r: &[Diag]) -> u32 {
     let mut s: u32 = 0;
     for (i, _d) in r.iter().enumerate() {
         if (epsilon(i, r)) == 1 {
