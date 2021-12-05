@@ -13,6 +13,10 @@ aoc_common = { path = "aoc_common" }
 opt-level = "z"
 
 [[bin]]
+name = "aoc_n"
+path = "src/aoc_n.rs"
+
+[[bin]]
 name = "aoc01"
 path = "src/aoc01.rs"
 
