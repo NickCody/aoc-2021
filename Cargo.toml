@@ -4,20 +4,23 @@ version = "0.1.0"
 authors = ["Nick Codignotto <nick.codignotto@gmail.com>"]
 
 [lib]
-path ="./src/lib/lib.rs"
+path ="src/lib.rs"
+
+[dependencies]
+aoc_common = { path = "aoc_common" }
 
 [profile.release]
 opt-level = "z"
 
 [[bin]]
 name = "aoc01"
-path = "src/aoc01.rs"
+path = "src/bin/aoc01.rs"
 
 [[bin]]
 name = "aoc01a"
-path = "src/aoc01a.rs"
+path = "src/bin/aoc01a.rs"
 
 [[bin]]
 name = "aoc02"
-path = "src/aoc02.rs"
+path = "src/bin/aoc02.rs"
 
